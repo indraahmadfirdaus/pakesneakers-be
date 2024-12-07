@@ -4,12 +4,18 @@ const midtransClient = require('midtrans-client');
 const { v4: uuidv4 } = require('uuid');
 const morgan = require('morgan');
 
-
 require('dotenv').config();
 
 const app = express();
 
-app.use(cors());
+const corsOptions = {
+    origin: '*',
+    methods: 'GET,POST,PUT,DELETE',
+    allowedHeaders: 'Content-Type,Authorization',
+    credentials: true,
+  };
+
+app.use(cors(corsOptions));
 app.use(express.json());
 app.use(morgan('dev'));
 
