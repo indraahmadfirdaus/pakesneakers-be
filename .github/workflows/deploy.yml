@@ -44,12 +44,9 @@ jobs:
         key: ${{ secrets.VPS_SSH_KEY }}
         port: 2221
         script: |
-          # Stop and remove the old container
-          docker stop node-app || true
-          docker rm node-app || true
+          docker stop pakesneakers-be || true
+          docker rm pakesneakers-be || true
           
-          # Pull the latest image
           docker pull indrafrds/pakesneakers-be:latest
           
-          # Run the new container
-          docker run -d --name node-app -p 8081:8081 --network app-network indrafrds/pakesneakers-be:latest
+          docker run -d --name pakesneakers-be -p 8081:8081 --network app-network indrafrds/pakesneakers-be:latest
