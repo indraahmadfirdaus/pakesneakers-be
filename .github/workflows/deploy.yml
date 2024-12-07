@@ -42,7 +42,7 @@ jobs:
         host: ${{ secrets.VPS_IP }}
         username: ${{ secrets.VPS_USERNAME }}
         key: ${{ secrets.VPS_SSH_KEY }}
-        port: 22
+        port: 2221
         script: |
           # Stop and remove the old container
           docker stop node-app || true
