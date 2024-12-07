@@ -13,6 +13,15 @@ app.use(cors());
 app.use(express.json());
 app.use(morgan('dev'));
 
+//healthcheck
+app.get('/', (req, res) => {
+    res.json({
+        message: 'PakeSneakers Service is up',
+        uptime: process.uptime(),
+        timestamp: new Date()
+    });
+});
+
 app.post('/checkout', async (req, res) => {
     try {
 
